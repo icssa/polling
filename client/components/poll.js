@@ -2,7 +2,7 @@
 Template.poll.events({
 
   // event to handle clicking a choice
-  'click .vote': function(event) {
+  'click .vote': function (event) {
 
     // prevent the default behavior
     event.preventDefault();
@@ -18,10 +18,16 @@ Template.poll.events({
 
     // increment the number of votes for this choice
     Polls.update(
-        { _id: pollID },
-        { $inc: action }
+        {_id: pollID},
+        {$inc: action}
     );
+  },
 
+  //event to handle clicking delete
+  'click .delete': function (event) {
+    var pollID = $(event.currentTarget).parent('.poll').data('id');
+  Polls.remove(pollID);
   }
 
 });
+
