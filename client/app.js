@@ -1,3 +1,4 @@
+Meteor.subscribe("polls");
 Template.body.helpers({
 
   polls: function() {

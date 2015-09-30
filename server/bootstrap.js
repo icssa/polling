@@ -31,4 +31,7 @@ Meteor.startup(function() {
 
   }
 
+  Meteor.publish("polls", function () {
+    return Polls.find({}, {fields: {secretInfo: 0}});
+  });
 });
